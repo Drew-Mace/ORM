@@ -1,0 +1,54 @@
+1. SELECT DISTINCT full_name
+   FROM user
+   WHERE user_id = 1;
+   
+   user = User.find(1)
+
+2. SELECT comment.title
+   FROM comment
+   WHERE id = 2;
+
+   comment = Comment.find(2)
+   comment.title
+
+3. SELECT * 
+   FROM post
+   ORDER BY user_id;
+   
+   USE post 
+   SORT TO user_posts ON post_user_id/A
+
+4. SELECT comment.title
+   FROM comment
+   ORDER BY id
+   LIMIT 5;
+
+   
+5. SELECT comment.body
+   FROM comment
+   WHERE EXISTS
+    (SELECT user.full_name
+     FROM user
+     WHERE user.id = 1)
+   GROUP BY comment.date;
+
+   user.User.find(1)
+   comment = comment.find(user)
+   comment.body
+
+6. SELECT user.full_name
+   FROM user
+   WHERE id > 5;
+  
+   user = User.all.first_name
+   user.find(5)
+
+7. SELECT user.first_name, comment.body
+   FROM user
+   CROSS JOIN comment
+   ORDER BY user.first_name;
+
+   user = User.all.first_name
+   comment = Comment.all.body
+   user + comment
+
